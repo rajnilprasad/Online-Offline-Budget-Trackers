@@ -45,22 +45,20 @@
   </div>
 
   <script src="/db.js"></script>
-  <script src="/index.js></script>
-
+  <script src="/index.js"></script>
   <script>
     (function () {
       if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register(" sw-register.js") 
-        .then(()=> console.log("Service Worker registered successfully."))
-          .catch (error => console.log("Service Worker registration failed:", console.error));
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js')
+            .then((reg) => {
+              console.log('Service worker registered.', reg);
+            });
+        });
       }
-    });
-
-        </script>
-
-
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-  <script src="index.js"></script>
+    })();
+  </script>
+  <script src=" https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 </body>
 
 </html>
